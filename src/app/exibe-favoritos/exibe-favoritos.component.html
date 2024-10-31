@@ -1,0 +1,25 @@
+
+<input type="button" value="Cadastrar"
+     (click)="obterFavoritos()">
+
+
+
+<table *ngIf="favs.length > 0">
+    <tr>
+        <th>Nome</th>
+        <th>Telefone</th>
+        <th>Email</th>
+        <th>Aniversario</th>
+        <th>Tipo</th>
+        <th>É favorito?</th>
+    </tr>
+    <tr *ngFor="let cc of contatos">
+        <td>{{cc.getNome()}}</td>
+        <td>{{cc.getTelefone()}}</td>
+        <td>{{cc.getEmail()}}</td>
+        <td>{{cc.getAniversario()}}</td>
+        <td>{{cc.getTipo()}}</td>
+        <td>{{cc.getFav()}}</td>
+    </tr>
+  </table>
+  

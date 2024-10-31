@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Tipo } from './classes/enumTipo';
 import { Contato } from './classes/contato';
+import { AgendaServiceService } from '../services/AgendaService/agenda-service.service';
 
 @Component({
   selector: 'app-adiciona-contato',
@@ -10,13 +11,21 @@ import { Contato } from './classes/contato';
 export class AdicionaContatoComponent {
   tipos: Tipo[]
   contatos: Contato[]
-  constructor() {
+  
+  constructor(private agendaService: AgendaServiceService) {
     this.tipos = Object.values(Tipo)
-    this.contatos = []
+    this.contatos = this.agendaService.obterTodos();
   }
 
-  adicionarContato(nome: string, telefone: string, email: string, aniversario:string, tipo: string) {
-    this.contatos.push(new Contato(nome, telefone, email, aniversario, this.setTipo(tipo)))
+  adicionar(nome: string, telefone: string, email: string, aniversario:string, tipo: string, fav:boolean) {
+    /*this.contatos.push(new Contato(nome, telefone, email, aniversario, this.setTipo(tipo), fav))
+    window.alert(fav)*/
+    let novoContato = new Contato(nome, telefone, email, aniversario, this.setTipo(tipo), fav)
+    if (this.agendaService.adicionar(novoContato)) { // Usar o método do serviço para adicionar
+      this.contatos.push(novoContato);
+    }else {
+    window.alert('Contato já existe!');
+    }
   }
   setTipo(tipo: string){
     let tp: Tipo

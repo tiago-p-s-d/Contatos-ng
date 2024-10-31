@@ -4,15 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdicionaContatoComponent } from './adiciona-contato/adiciona-contato.component';
+import { FormsModule } from '@angular/forms';
+import { ExibeFavoritosComponent } from './exibe-favoritos/exibe-favoritos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdicionaContatoComponent
+    AdicionaContatoComponent,
+    ExibeFavoritosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

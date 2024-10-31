@@ -8,15 +8,17 @@ export class Contato{
     private aniversario: string;
 
     private tipo: Tipo;
+    private fav: boolean;
 
 
-    constructor(nome: string, telefone: string, email: string, aniversario: string, tipo: Tipo){
+    constructor(nome: string, telefone: string, email: string, aniversario: string, tipo: Tipo, fav: boolean){
 
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
         this.aniversario = aniversario;
         this.tipo = tipo;
+        this.fav = fav;
     }
 
 
@@ -49,6 +51,9 @@ export class Contato{
     }
     setTipo(tipo:Tipo){
         this.tipo = tipo
+    }
+    getFav(){
+        return this.fav
     }
 
 
