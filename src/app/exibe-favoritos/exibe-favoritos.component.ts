@@ -16,17 +16,21 @@ export class ExibeFavoritosComponent {
     this.contatos = this.agendaService.obterTodos();
     this.favs = []
   }
-  
+
   obterFavoritos(){
-     window.alert('chamou a funcao')
+
      let favoritos = this.agendaService.obterTodos()
+
     for (let x = 0; x < favoritos.length; x++){
-      window.alert('entrou no for')
-      let contato = this.contatos[x]
+
+      let contato = favoritos[x]
+
       if(contato.getFav()){
+
         this.favs.push(contato)
+
       }
-      
+
     }
     return undefined
   }

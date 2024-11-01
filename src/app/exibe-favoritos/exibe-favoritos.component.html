@@ -1,5 +1,5 @@
 
-<input type="button" value="Cadastrar"
+<input type="button" value="Mostrar favoritos"
      (click)="obterFavoritos()">
 
 
@@ -13,7 +13,7 @@
         <th>Tipo</th>
         <th>É favorito?</th>
     </tr>
-    <tr *ngFor="let cc of contatos">
+    <tr *ngFor="let cc of favs">
         <td>{{cc.getNome()}}</td>
         <td>{{cc.getTelefone()}}</td>
         <td>{{cc.getEmail()}}</td>
@@ -22,4 +22,3 @@
         <td>{{cc.getFav()}}</td>
     </tr>
   </table>
-  
